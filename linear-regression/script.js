@@ -13,7 +13,8 @@ window.onload = async () => {
 
     const model = tf.sequential();
     model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
-    model.compile({ loss: tf.losses.meanSquaredError, optimizer: tf.train.sgd(0.1) });
+    // sgd 是随机梯度下降 meanSquaredError 是均方误差
+    model.compile({ loss: tf.losses.meanSquaredError, optimizer: tf.train.sgd(0.1) }); 
 
     const inputs = tf.tensor(xs);
     const labels = tf.tensor(ys);
